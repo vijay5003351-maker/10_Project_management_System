@@ -1,0 +1,45 @@
+.single_project_div .single_project_title {
+    border: 1px solid rgb(141, 21, 227);
+    border-left: 5px solid rgb(141, 21, 227);
+    border-radius: 10px;
+}
+
+.single_project_row > div {
+    box-shadow: 0px 0px 4px black;
+    border-radius: 10px;
+}
+.single_project_div ul {
+    list-style-type: none;
+}
+
+.single_project_div .dev_progress_div {
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+}
+
+.dev_progress_div .single_dev_div {
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+}
+
+.single_project_div .submit_project_btn {
+    border: none;
+    outline: none;
+    padding: 0.5em 1em !important;
+    background-color: rgb(238, 47, 108);
+    color: white;
+    border-radius: 10px;
+}
+
+.single_project_div .submit_project_btn:hover {
+    background-color: rgb(239, 8, 81);
+    box-shadow: 0px 0px 5px rgb(238, 47, 108);
+    transition: all 0.2s ease-in-out;
+}
+
+.single_project_div .submit_project_btn:disabled {
+    background-color: grey;
+    color: white;
+    box-shadow: 0 0;
+    cursor: no-drop;
+}

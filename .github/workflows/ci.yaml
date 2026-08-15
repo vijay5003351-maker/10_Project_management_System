@@ -1,0 +1,83 @@
+name: 01_pms_ci_cd
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pms_ci_cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
+
+      - name: Install server dependencies
+        working-directory: ./Server
+        run: npm ci
+
+      - name: Lint server
+        working-directory: ./Server
+        run: npm run lint -- --max-warnings=0
+
+      - name: Install client dependencies
+        working-directory: ./Client
+        run: npm i
+
+      - name: Lint client
+        working-directory: ./Client
+        run: npm run lint -- --max-warnings=0
+
+      - name: Build server Docker image
+        run: docker build -t 01_pms_server_docker_image ./Server
+
+      - name: Build client Docker image
+        run: docker build -t 01_pms_client_docker_image ./Client
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add EC2 host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+
+      - name: Write SSH key
+        run: |
+          echo "${EC2_KEY}" > ec2_key.pem
+          chmod 600 ec2_key.pem
+        env:
+          EC2_KEY: ${{ secrets.EC2_KEY }}
+
+      - name: Deploy on EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_APP_DIR: ${{ secrets.EC2_APP_DIR }}
+        run: |
+          ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << EOF
+            set -e
+            cd "${EC2_APP_DIR}" || exit 1
+
+            sudo ls
+            
+            # fetch latest code
+            git fetch --all
+            git reset --hard origin/main
+
+            # rebuild containers
+            docker compose up -d --build
+
+            # clean old images
+            docker image prune -f
+
+            docker compose ps
+          EOF

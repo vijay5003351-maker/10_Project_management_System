@@ -1,0 +1,16 @@
+.admin_main {
+    display: flex;
+    justify-content: space-between;
+    min-height: 80vh;
+}
+.admin_content_box {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 83%;
+}
+
+@media (max-width: 1199px) {
+    .admin_content_box {
+        width: 100%;
+    }
+}

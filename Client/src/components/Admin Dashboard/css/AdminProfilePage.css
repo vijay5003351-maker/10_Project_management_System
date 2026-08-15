@@ -1,0 +1,31 @@
+.admin_profile_div {
+    box-shadow: 0px 0px 4px black;
+    border-radius: 10px;
+}
+
+.admin_profile_div input {
+    width: 100%;
+    padding: 0.5em 1em !important;
+    border-radius: 10px;
+    border: 1px solid purple;
+    outline: none;
+    border-left: 4px solid purple;
+}
+
+.admin_profile_div label {
+    font-size: 1.3em;
+}
+
+.admin_profile_div button {
+    border: none;
+    outline: none;
+    background-color: purple;
+    border-radius: 10px;
+    padding: 0.5em 1em !important ;
+    color: white;
+}
+
+.admin_profile_div button:hover {
+    background-color: blueviolet;
+    transition: all 0.2s ease-in-out;
+}

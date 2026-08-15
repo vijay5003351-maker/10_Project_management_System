@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+.admin_header {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.admin_nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin_nav li:first-child p,
+.admin_nav span {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Logout button */
+
+.admin_nav li button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0.2em !important;
+    background-color: white;
+    font-size: 1.4em;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(243, 83, 208, 0.5);
+    transition: all 0.3s ease;
+}
+
+.admin_nav li button:hover {
+    background-color: rgb(223, 25, 217);
+    color: white;
+    box-shadow: 0px 0px 20px rgba(243, 83, 208, 0.8);
+    transform: scale(1.1);
+}
+
+.header_greet {
+    font-family: "Dancing Script", cursive !important;
+    font-optical-sizing: auto !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 50px !important;
+}
+
+.header_person_span {
+    font-size: 30px !important;
+    background: linear-gradient(
+        to right,
+        rgb(229, 53, 53),
+        rgb(232, 68, 153),
+        orange
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* header end */

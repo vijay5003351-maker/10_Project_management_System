@@ -1,0 +1,33 @@
+.add_members_form input,
+.add_members_form select {
+    display: block;
+    width: 100%;
+    border: 1px solid pink;
+    padding: 0.8em 1em !important;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add_members_form .row {
+    gap: 1em;
+}
+
+.add_members_form label {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.add_member_btn {
+    border: none;
+    font-weight: 500;
+    color: rgb(58, 58, 58);
+    background-color: pink;
+    outline: none;
+    padding: 0.6em 1em !important;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+.add_member_btn:hover {
+    color: white;
+    background-color: rgb(226, 36, 67);
+}

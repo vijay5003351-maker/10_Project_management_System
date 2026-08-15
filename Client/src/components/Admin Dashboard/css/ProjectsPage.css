@@ -1,0 +1,41 @@
+.projects_box {
+    box-shadow: 0px 0px 4px black;
+    border-radius: 10px;
+    height: 100%;
+}
+.projects_box > div {
+    display: flex;
+    gap: 10px;
+}
+.projects_box > div > div:first-child {
+    width: 40%;
+}
+
+.projects_box .progress_div {
+    width: 100% !important;
+}
+
+.projects_box .see_full_details_link {
+    text-decoration: none;
+    color: rgb(7, 63, 95);
+    font-weight: 500;
+}
+
+.projects_box .see_full_details:hover {
+    cursor: pointer;
+    color: rgb(219, 41, 41);
+    transition: all 0.2s ease;
+}
+
+.projects_box .project_title {
+    border: 1px solid red;
+    border-left: 4px solid red;
+
+    border-radius: 10px;
+}
+
+@media (max-width: 575px) {
+    .projects_box > div > div:first-child {
+        width: 100%;
+    }
+}

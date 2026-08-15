@@ -1,0 +1,94 @@
+.view_members_div {
+    overflow: scroll;
+    height: 70vh;
+}
+
+.view_members_table {
+    width: 100%;
+}
+.view_members_table th,
+.view_members_table td {
+    padding: 1em !important;
+    border: 1px solid grey;
+}
+
+.member_delete_btn {
+    cursor: pointer;
+    padding: 0.2em 0.8em !important;
+    background-color: rgb(239, 115, 115);
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    border: none;
+    outline: none;
+}
+
+.member_delete_btn:hover {
+    background-color: rgb(241, 58, 58);
+    transition: all 0.3s ease;
+}
+
+.member_delete_btn:disabled {
+    background-color: grey;
+    color: white;
+    cursor: no-drop;
+}
+
+.pop_outer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.delete_popup {
+    z-index: 3;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 1em auto !important;
+    width: fit-content;
+    height: fit-content;
+    padding: 1em !important;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.81);
+    color: black;
+    transform: translateY(-200px);
+    background-color: rgb(255, 244, 244);
+    transition: all 0.2s ease;
+}
+
+.delete_popup.present {
+    transform: translateY(0);
+}
+
+.delete_popup button {
+    padding: 0.5em !important;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.delete_popup button:first-child {
+    border: 1px solid green;
+    color: green;
+    background-color: rgb(232, 255, 232);
+}
+.delete_popup button:first-child:hover {
+    border: 1px solid green;
+    color: black;
+    background-color: rgb(93, 255, 93);
+}
+
+.delete_popup button:last-child {
+    border: 1px solid red;
+    color: red;
+    background-color: rgb(255, 219, 219);
+}
+.delete_popup button:last-child:hover {
+    border: 1px solid red;
+    color: black;
+    background-color: rgb(255, 102, 102);
+}

@@ -1,0 +1,64 @@
+.my_task_page_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.my_task_outer_div {
+    box-shadow: 0px 0px 4px black;
+    border-radius: 10px;
+    min-height: 70px;
+}
+.my_task_inner_div {
+    height: 100%;
+}
+
+.task_description {
+    border: 1px solid rgb(220, 14, 14);
+    border-left: 5px solid rgb(220, 14, 14);
+    border-radius: 10px;
+    min-height: 100px;
+}
+
+.my_task_inner_div .task_status {
+    border: 1px solid rgb(220, 14, 14);
+    border-left: 5px solid rgb(220, 14, 14);
+    border-radius: 10px;
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.my_task_inner_div .task_btn_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.my_task_inner_div .task_btn_div button {
+    border: none;
+    outline: none;
+    background-color: rgb(231, 18, 149);
+    padding: 1em !important;
+    border-radius: 10px;
+    color: white;
+    text-wrap: nowrap;
+}
+
+.task_btn_div button:hover {
+    background-color: rgb(195, 13, 125);
+    transition: all 0.3s ease;
+}
+
+.task_btn_div button:disabled {
+    background-color: grey;
+    color: white;
+    opacity: 70%;
+    cursor: no-drop;
+}

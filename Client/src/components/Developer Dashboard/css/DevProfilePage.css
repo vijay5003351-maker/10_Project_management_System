@@ -1,0 +1,64 @@
+.dev_update_btn {
+    background-color: orangered;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0.5em 1em !important ;
+    border-radius: 10px;
+}
+
+.dev_update_btn:hover {
+    box-shadow: 0px 0px 5px rgba(251, 71, 5, 0.819);
+    background-color: rgb(252, 92, 0);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.alert_box {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 1;
+
+    box-shadow: 0px 0px 5px rgb(72, 194, 72);
+    width: 300px;
+    min-height: 70px;
+    background-color: rgb(238, 254, 238);
+    border-radius: 10px;
+    transform: translateX(345px);
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.alert_box.visible {
+    transform: translateX(0);
+}
+
+.alert_under_line {
+    height: 5px;
+    background-color: rgb(37, 137, 37);
+    border-radius: 0px 0px 15px 15px;
+}
+
+.alert_box.visible div:last-child {
+    animation: bar 1.5s linear normal;
+}
+
+@keyframes bar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .alert_box {
+        right: 10px !important;
+    }
+}

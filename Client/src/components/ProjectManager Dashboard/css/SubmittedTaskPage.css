@@ -1,0 +1,19 @@
+.submit_task_dev_box .submit_inner_box {
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit_task_dev_box .submit_inner_box:hover {
+    background-color: orangered;
+    transition: all 0.4s ease;
+    box-shadow: 0px 0px 10px orangered;
+    color: white;
+}
+
+.submit_inner_box.onActive {
+    background-color: rgb(244, 83, 24);
+    transition: all 0.4s ease;
+    box-shadow: 0px 0px 10px rgb(244, 83, 24);
+    color: white;
+}
