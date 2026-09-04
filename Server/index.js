@@ -25,16 +25,19 @@ mongoose
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     res.send("hello");
 });
 
-app.use("/login", loginRoutes);
-app.use("/admin", adminRoutes);
-app.use("/project_manager", projectManagerRoutes);
-app.use("/developer", developerRoutes);
+app.use("/api/login", loginRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/project_manager", projectManagerRoutes);
+app.use("/api/developer", developerRoutes);
 
 // listen server
 app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT} - cors enabled for ${process.env.APPLICATION_URL}`);
+    console.log(
+        `Server listening on ${PORT} - cors enabled for ${process.env.APPLICATION_URL}`,
+    );
 });
+app.get("/health", (req, res) => res.sendStatus(200));

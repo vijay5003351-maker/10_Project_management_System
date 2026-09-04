@@ -1,7 +1,7 @@
 services:
   mongo:
     image: mongo:6.0
-    container_name: mongo-container
+    container_name: mongo-container-pms
     restart: unless-stopped
     volumes:
       - mongo-volume:/data/db
@@ -15,8 +15,7 @@ services:
     restart: unless-stopped
     env_file:
       - ./Server/.env
-    ports:
-      - "4500:4500"
+    
     depends_on:
       - mongo
     networks:
@@ -26,15 +25,30 @@ services:
     build:
       context: ./Client
       args:
-        VITE_REACT_API_URL: http://localhost:4500
+        VITE_REACT_API_URL: "http://localhost/api"
     container_name: 01_pms_client_compose_container
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+   
     depends_on:
       - 01_pms_server_service
     networks:
       - project-network
+
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_container
+    restart: unless-stopped 
+    volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+        - "80:80"
+    depends_on:
+       - 01_pms_client_service
+       - 01_pms_server_service
+    networks:
+    - project-network
+
 
 volumes:
   mongo-volume:
