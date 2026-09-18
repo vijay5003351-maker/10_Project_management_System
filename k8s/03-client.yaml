@@ -17,21 +17,21 @@ spec:
     spec:
       containers:
         - name: client-container
-          image: client-pms:local
+          image: client-test:local
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
 ---
 apiVersion: v1
-kind: Service # ✅ corrected (was Services)
+kind: Service
 metadata:
   name: client
-  namespace: devops-pms # ✅ corrected spelling
+  namespace: devops-pms
 spec:
   selector:
-    app: client # ✅ corrected (was labels)
+    app: client
   ports:
-    - protocol: TCP # ✅ corrected spelling
+    - protocol: TCP
       port: 3000
       targetPort: 3000
-  type: ClusterIP # ✅ corrected spelling
+  type: ClusterIP

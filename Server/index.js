@@ -10,8 +10,15 @@ const developerRoutes = require("./routes/developerRoutes");
 const PORT = process.env.PORT || 4500;
 
 const corsOptions = {
-    origin: [process.env.APPLICATION_URL],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: [
+        process.env.APPLICATION_URL,
+        "http://pms.local",
+        "http://localhost:4500",
+        "http://localhost",
+    ].filter(Boolean), // removes undefined values if process.env.APPLICATION_URL isn't set
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
 };
 
 // connect Database
@@ -35,7 +42,7 @@ app.use("/api/project_manager", projectManagerRoutes);
 app.use("/api/developer", developerRoutes);
 
 // listen server
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(
         `Server listening on ${PORT} - cors enabled for ${process.env.APPLICATION_URL}`,
     );
