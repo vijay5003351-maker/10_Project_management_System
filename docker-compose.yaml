@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     volumes:
       - mongo-volume:/data/db
+    ports:
+      - "27017:27017"
     networks:
       - project-network
 
