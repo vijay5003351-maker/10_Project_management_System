@@ -10,7 +10,7 @@ const developerRoutes = require("./routes/developerRoutes");
 const PORT = process.env.PORT || 4500;
 
 const corsOptions = {
-    origin: [process.env.APPLICATION_URL],
+    origin: [...process.env.APPLICATION_URL.split(",")],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 };
 
@@ -29,12 +29,14 @@ app.get("/", (req, res) => {
     res.send("hello");
 });
 
-app.use("/login", loginRoutes);
-app.use("/admin", adminRoutes);
-app.use("/project_manager", projectManagerRoutes);
-app.use("/developer", developerRoutes);
+app.use("/api/login", loginRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/project_manager", projectManagerRoutes);
+app.use("/api/developer", developerRoutes);
 
 // listen server
 app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT} - cors enabled for ${process.env.APPLICATION_URL}`);
+    console.log(
+        `Server listening on ${PORT} - cors enabled for ${process.env.APPLICATION_URL}`,
+    );
 });

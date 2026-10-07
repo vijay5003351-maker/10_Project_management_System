@@ -28,7 +28,7 @@ services:
     build:
       context: ./Client
       args:
-        VITE_REACT_API_URL: http://localhost:4500
+        VITE_REACT_API_URL: http://localhost:4500/
     container_name: 01_pms_client_compose_container
     restart: unless-stopped
     ports:
